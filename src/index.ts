@@ -26,7 +26,7 @@ export const defaultValidationChangedHandler = async <TModel>(component: ISetSta
         validationErrors[property] = result.properties[property].errors;
     }
 
-    await new Promise(resolve => {
+    await new Promise<void>((resolve) => {
         component.setState({
             isValid: result.isValid,
             validation: {
